@@ -15,33 +15,46 @@ proxy-providers:
       url: http://ping.xmbb.net
       interval: '180'
 proxy-groups:
+#kumpulan akun
 - name: Indonesia
-  type: select
+  type: load-balance
   disable-udp: false
   use:
   - AKUN ID
   url: http://ping.xmbb.net
   interval: '180'
 - name: Singapore
-  type: select
+  type: load-balance
   disable-udp: false
   use:
   - AKUN SG
   url: http://ping.xmbb.net
   interval: '180'
+#pilihan akses
 - name: INTERNET
-  type: select
+  type: fallback
   disable-udp: false
   proxies:
-  - REJECT
-  - DIRECT
   - Indonesia
   - Singapore
+#pilihan isp
+- name: Direct WAN A
+  type: select
+  interface-name: eth1
+  proxies:
+  - DIRECT
+- name: Direct WAN B
+  type: select
+  interface-name: eth2
+  proxies:
+  - DIRECT
+#pilihan direct
 - name: Jalur Direct
   type: select
   disable-udp: false
   proxies:
-  - DIRECT
+  - Direct WAN A
+  - Direct WAN B
   - INTERNET
 - name: E-Wallet - Bank
   type: select
@@ -73,7 +86,8 @@ proxy-groups:
   - INTERNET
   - Indonesia
   - Singapore
-  - DIRECT
+  - Direct WAN A
+  - Direct WAN B
 - name: Gaming UDP
   type: select
   disable-udp: false
@@ -84,7 +98,8 @@ proxy-groups:
   - INTERNET
   - Indonesia
   - Singapore
-  - DIRECT
+  - Direct WAN A
+  - Direct WAN B
 - name: Blokir-Iklan
   type: select
   disable-udp: false
@@ -130,7 +145,8 @@ proxy-groups:
   - Indonesia
   - Singapore
   - REJECT
-  - DIRECT
+  - Direct WAN A
+  - Direct WAN B
 redir-port: 7892
 tproxy-port: 7895
 port: 7890
