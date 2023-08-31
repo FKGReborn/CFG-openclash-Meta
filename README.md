@@ -154,5 +154,6 @@ Karena Menggunakan Meta Core, Pastikan Download/Update Core Meta ke versi terbar
 
 ## Credits
 
-- [rfxcll/open_meta](https://github.com/rfxcll/open_meta)
-- [malikshi/open_meta](https://github.com/malikshi/open_meta)
+- [rfxcll/open_meta](https://github.com/rfxcll/open_meta) @rfxcll
+- [malikshi/open_meta](https://github.com/malikshi/open_meta) @malikshi
+- [dantewrt/DanteWRT-Meta](https://github.com/dantewrt/DanteWRT-Meta) @dantewrt
