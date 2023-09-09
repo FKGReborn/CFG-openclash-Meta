@@ -56,6 +56,8 @@ proxy-groups:
   - Direct WAN A
   - Direct WAN B
   - INTERNET
+  - Indonesia
+  - Singapore
 - name: E-Wallet - Bank
   type: select
   disable-udp: false
