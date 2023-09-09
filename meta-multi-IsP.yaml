@@ -1,5 +1,12 @@
 ---
 proxy-providers:
+  AKUN GAME:
+    type: file
+    path: "./proxy_provider/pp-gaming.yaml"
+    health-check:
+      enable: true
+      url: http://ping.xmbb.net
+      interval: '180'
   AKUN ID:
     type: file
     path: "./proxy_provider/INDO.yaml"
@@ -16,6 +23,13 @@ proxy-providers:
       interval: '180'
 proxy-groups:
 #kumpulan akun
+- name: GAMING
+  type: url-test
+  disable-udp: false
+  use:
+  - AKUN GAME
+  url: http://ping.xmbb.net
+  interval: '180'
 - name: Indonesia
   type: load-balance
   disable-udp: false
@@ -82,24 +96,21 @@ proxy-groups:
   type: select
   disable-udp: false
   use:
-  - AKUN ID
-  - AKUN SG
+  - AKUN GAME
   proxies:
-  - INTERNET
   - Indonesia
-  - Singapore
+  - GAMING
   - Direct WAN A
   - Direct WAN B
 - name: Gaming UDP
   type: select
   disable-udp: false
   use:
-  - AKUN ID
-  - AKUN SG
+  use:
+  - AKUN GAME
   proxies:
-  - INTERNET
   - Indonesia
-  - Singapore
+  - GAMING
   - Direct WAN A
   - Direct WAN B
 - name: Blokir-Iklan
