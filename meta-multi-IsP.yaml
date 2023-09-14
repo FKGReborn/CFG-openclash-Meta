@@ -32,6 +32,7 @@ proxy-groups:
   interval: '180'
 - name: Indonesia
   type: load-balance
+  strategy: round-robin
   disable-udp: false
   use:
   - AKUN ID
@@ -39,6 +40,7 @@ proxy-groups:
   interval: '180'
 - name: Singapore
   type: load-balance
+  strategy: round-robin
   disable-udp: false
   use:
   - AKUN SG
