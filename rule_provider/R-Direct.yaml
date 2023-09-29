@@ -10,5 +10,3 @@ payload:
   - DST-PORT,59234
 # > DoT
   - DST-PORT,853
-# > NTP
-  - DST-PORT,123
