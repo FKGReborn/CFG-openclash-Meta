@@ -2,7 +2,7 @@
 proxy-providers:
   AKUN GAME:
     type: file
-    path: "./proxy_provider/pp-gaming.yaml"
+    path: "./proxy_provider/GAME.yaml"
     health-check:
       enable: true
       url: http://ping.xmbb.net
@@ -16,7 +16,7 @@ proxy-providers:
       interval: '180'
   AKUN SG:
     type: file
-    path: "./proxy_provider/VPN.yaml"
+    path: "./proxy_provider/SG.yaml"
     health-check:
       enable: true
       url: http://ping.xmbb.net
